@@ -19,13 +19,13 @@ public:
         vi len(n, 1);
         fli(i,0,n-1){
            fli(j,0,i-1){
-            if(a[i]%a[j]==0){prev[i]=j;}
+            if(a[i]%a[j]==0 && len[j]+1 > len[i]){
+              len[i] = len[j] + 1;
+               prev[i] = j;
+            }
            }
         }
-        fli(i,0,n-1){
-            if(prev[i]==-1)continue;
-            len[i]= len[prev[i]]+1;
-        }
+        
         int id =0;
         int maxi = 0;
         fli(i,0,n-1){
@@ -39,6 +39,7 @@ public:
             ans.push_back(a[id]);
             id = prev[id];
         }
+
         return ans;
     }
 };
