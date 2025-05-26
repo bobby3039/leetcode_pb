@@ -29,7 +29,7 @@ public:
     int longestStrChain(vector<string>& s) {
         sort(all(s),
         [](string &s1, string &s2){
-            return s1.length()<=s2.length();
+            return s1.length()<s2.length();
         }
         );
         
