@@ -22,21 +22,22 @@ public:
       int n = mat[0].size();
 
       vvi vis(m ,vi(n,1e5));
-      vector<pii>v;
+      queue<pii>v;
 
       fli(i,0,m-1){
         fli(j,0,n-1){
-            if(mat[i][j]==0){v.push_back({i,j}); vis[i][j]=0;}
+            if(mat[i][j]==0){v.push({i,j}); vis[i][j]=0;}
         }
       }
 
-      fli(i,0,v.size()-1){
-        int x = v[i].first;
-        int y = v[i].second;
-        if(safe(x-1,y,m,n) && vis[x-1][y] == 1e5 ){vis[x-1][y] = vis[x][y]+1; v.push_back({x-1,y}); }
-        if(safe(x,y-1,m,n) && vis[x][y-1] == 1e5  ){vis[x][y-1] = vis[x][y]+1; v.push_back({x,y-1}); }
-        if(safe(x+1,y,m,n) && vis[x+1][y] == 1e5  ){vis[x+1][y] = vis[x][y]+1; v.push_back({x+1,y}); }
-        if(safe(x,y+1,m,n) && vis[x][y+1] == 1e5  ){vis[x][y+1] = vis[x][y]+1; v.push_back({x,y+1}); }
+      while(v.size()){
+        int x = v.front().first;
+        int y = v.front().second;
+        v.pop();
+        if(safe(x-1,y,m,n) && vis[x-1][y] == 1e5 ){vis[x-1][y] = vis[x][y]+1; v.push({x-1,y}); }
+        if(safe(x,y-1,m,n) && vis[x][y-1] == 1e5  ){vis[x][y-1] = vis[x][y]+1; v.push({x,y-1}); }
+        if(safe(x+1,y,m,n) && vis[x+1][y] == 1e5  ){vis[x+1][y] = vis[x][y]+1; v.push({x+1,y}); }
+        if(safe(x,y+1,m,n) && vis[x][y+1] == 1e5  ){vis[x][y+1] = vis[x][y]+1; v.push({x,y+1}); }
       }
       return vis;
     }
