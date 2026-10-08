@@ -5,12 +5,12 @@ public:
         int prev = nums[n-1];
         long long ans = 0;
         for(int i = n-2; i>=0; i--){
-            int val = (nums[i] + prev - 1)/prev;
-            ans += 1LL*(val-1);
-            prev = nums[i]/val;
+            int parts = (nums[i] + prev - 1)/prev;
+            int operations = parts - 1;
+            ans += 1LL*(operations);
+            prev = nums[i]/parts;
 
         }
-
         return ans;
     }
 };
