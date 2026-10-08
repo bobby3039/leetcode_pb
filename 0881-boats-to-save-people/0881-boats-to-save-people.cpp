@@ -8,26 +8,20 @@ public:
         while(i <= j){
 
           int limit = lim;
-          if(people[i] == limit){
-            cnt++;
-            i++;
-            continue;
-          }
-
+          // take 2 people
           if(people[i] + people[j] <= limit){
-                limit -= people[i] + people[j];
+                limit -= (people[i] + people[j]);
                 i++;
                 j--;
-                cnt++;
-                continue;
           }
-
-          if(people[i] < limit){
-             cnt++;
-             i++;
+         //take 1 people
+          else{
+            i++;
           }
-
+          
+          cnt++;
         }
+
         return cnt;
     }
 };
