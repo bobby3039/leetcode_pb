@@ -11,8 +11,8 @@ public:
                     ans++;
                 }
                 else{
-                    target++;
-                    ans++;
+                    ans += (s-target);
+                    return ans;
                 }
             }
 
