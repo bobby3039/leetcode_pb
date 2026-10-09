@@ -5,7 +5,7 @@ public:
         int n = s.size();
         if(n==1)return ans;
 
-        int i = 0, j = n-1;
+        int i = 0;
         // case1 :- first char not a
         if(s[0] != 'a'){
             s[0] = 'a';
@@ -22,6 +22,6 @@ public:
 
         s[i] = 'a';
         return s;   
-        
+
     }
 };
