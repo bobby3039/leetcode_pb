@@ -12,7 +12,7 @@ public:
             return s;
         }
 
-        // case 2 ;- starting elements a
+        // case 2 :- starting elements a
 
         while(s[i] == 'a' )i++;
         if(i >= n/2 ){
